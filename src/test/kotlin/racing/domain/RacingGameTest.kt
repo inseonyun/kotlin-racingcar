@@ -20,6 +20,18 @@ class RacingGameTest {
         )
     }
 
+    @Test
+    fun `jason과 pobi의 position이 4일 때, 최종 우승자는 jason과 pobi다`() {
+        val jasonCar = Car("jason", 4)
+        val pobiCar = Car("pobi", 4)
+        val cars = Cars(jasonCar, pobiCar)
+        val racingGame = RacingGame(cars, GameCount(5), SequentialMoveGenerator(listOf(4, 3)))
+
+        val actual = racingGame.determineWinners()
+        assertThat(actual.value).contains(Name("jason"))
+        assertThat(actual.value).contains(Name("pobi"))
+    }
+
     companion object {
         fun Car(name: String, position: Int): Car = Car(Name(name), Position(position))
         fun Cars(vararg cars: Car): Cars = Cars(cars.toList())
