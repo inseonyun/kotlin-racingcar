@@ -1,6 +1,7 @@
 package racing.domain
 
-class Name(val value: String) {
+@JvmInline
+value class Name(val value: String) {
     init {
         require(value.length in (MIN_CAR_NAME_LENGTH_CONDITION..MAX_CAR_NAME_LENGTH_CONDITION)) { ERROR_OVER_NAME_LENGTH }
     }
