@@ -12,7 +12,7 @@ class InputView {
             .onFailure {
                 println(it.message)
             }
-            .getOrDefault(readNames())
+            .getOrElse { readNames() }
 
     fun readGameCount(): GameCount =
         runCatching {
@@ -24,7 +24,7 @@ class InputView {
             .onFailure {
                 println(it.message)
             }
-            .getOrDefault(readGameCount())
+            .getOrElse { readGameCount() }
 
     companion object {
         private const val MIN_GAME_COUNT = 1
