@@ -1,6 +1,6 @@
 package racing.domain
 
-class RacingGame(val cars: Cars, var gameCount: GameCount, val numberGenerator: NumberGenerator) {
+class RacingGame(private val cars: Cars, private var gameCount: GameCount, private val numberGenerator: NumberGenerator) {
     fun run(statusOfCars: (Cars) -> Unit) {
         while (gameCount--.value > 0) {
             startMatchOnce()
